@@ -5,8 +5,6 @@ class CreateFeedbacks < ActiveRecord::Migration[5.2]
       t.references :user, foreign_key: true
       t.references :game, foreign_key: true
       t.integer :rating
-
-      t.timestamps
     end
   end
 end

@@ -11,8 +11,6 @@ class CreateGames < ActiveRecord::Migration[5.2]
       t.string :genre
       t.string :esrb_rating
       t.references :user, foreign_key: true
-
-      t.timestamps
     end
   end
 end
