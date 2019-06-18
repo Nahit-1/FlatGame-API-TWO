@@ -14,7 +14,6 @@ class FeedbacksController < ApplicationController
       end
 
         def create
-          # feedback = Feedback.new =(content: params[:content], user_id: params[:user_id], game_id: params[:game_id], rating: params[:rating])
           feedback = Feedback.new(content: params[:content], game_id: params[:game_id], rating: params[:rating], user_id: params[:user_id])
           # byebug
           if feedback.save
