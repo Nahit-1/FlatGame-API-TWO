@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :games
   resources :feedbacks
 
-  
+  get '/games/:id/feedbacks', to: 'games#feedbacks'
 
   # post /'rate', to: 'game#rating'
 end 

@@ -11,7 +11,19 @@ class GamesController < ApplicationController
         else 
             render json: {error: 'Game not found.'}, status: 404 
         end 
+
+    
     end 
+
+    def feedbacks 
+        game = Game.find_by(id: params[:id])
+        if game 
+            render json: game.feedbacks
+        else 
+            render json: {error: 'Game not found.'}, status: 404
+        end 
+
+    end     
 
     # def rate
     #     game = Game.find_by(id: params[:game_id])
