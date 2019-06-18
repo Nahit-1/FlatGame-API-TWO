@@ -20,8 +20,6 @@ ActiveRecord::Schema.define(version: 2019_06_17_201444) do
     t.bigint "user_id"
     t.bigint "game_id"
     t.integer "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_feedbacks_on_game_id"
     t.index ["user_id"], name: "index_feedbacks_on_user_id"
   end
@@ -29,17 +27,11 @@ ActiveRecord::Schema.define(version: 2019_06_17_201444) do
   create_table "games", force: :cascade do |t|
     t.string "slug"
     t.string "name"
-    t.text "description"
     t.integer "metacritic"
     t.string "background_image"
     t.integer "rating"
     t.string "platform"
     t.string "genre"
-    t.string "esrb_rating"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_games_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,5 +44,4 @@ ActiveRecord::Schema.define(version: 2019_06_17_201444) do
 
   add_foreign_key "feedbacks", "games"
   add_foreign_key "feedbacks", "users"
-  add_foreign_key "games", "users"
 end
