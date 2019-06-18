@@ -7,14 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'rest-client'
 
+Feedback.destroy_all
 User.destroy_all
 Game.destroy_all
-# Feedback.destroy_all
 
-User.create(username: 'Nahit', email: 'abc@abc.com', password: 'password')
-User.create(username: 'Danny', email: 'def@xxx.com', password: 'password')
-User.create(username: 'Ivan', email: '123@hotmail.com', password: 'password')
-User.create(username: 'Nico', email: '456@flatiron.com', password: 'password')
+
+nahit = User.create(username: 'Nahit', email: 'abc@abc.com', password: 'password')
+danny = User.create(username: 'Danny', email: 'def@xxx.com', password: 'password')
+ivan = User.create(username: 'Ivan', email: '123@hotmail.com', password: 'password')
+nico = User.create(username: 'Nico', email: '456@flatiron.com', password: 'password')
 
 # GAME API ENDPOINT
 # data['results'][0] this gets the first game g
@@ -46,3 +47,10 @@ url = "https://api.rawg.io/api/games?page="
         end
 	end
 end
+
+Feedback.create([
+        { content: "10 out of 10... would die again", user: nahit, game: Game.first, rating: 3.9 },
+        { content: "I haven't seen my wife in 2 weeks", user: danny, game: Game.first, rating: 4.9 },
+        { content: "I got shot by a 6 year old...", user: ivan, game: Game.last, rating: 3.9 }
+])
+
