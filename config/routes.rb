@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   resources :games
   resources :feedbacks
 
+  
+
   # post /'rate', to: 'game#rating'
 end 
